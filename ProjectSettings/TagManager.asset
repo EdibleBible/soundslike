@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Joint
+  - JointA
+  - JointB
+  - JointC
   layers:
   - Default
   - TransparentFX
