@@ -4,11 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using static SpoderTrail;
 
-public class UIMove0 : MonoBehaviour
+public class UIMove2 : MonoBehaviour
 {
     private Image imageComponent;
     public SpoderTrail trailScript;
-    public int movementEndIndex;
 
     private void Start()
     {
@@ -28,9 +27,6 @@ public class UIMove0 : MonoBehaviour
     private void UpdateSprite(List<MoveType> moves)
     {
         int movesCount = moves.Count;
-        if (movesCount >= movementEndIndex)
-        {
-            imageComponent.sprite = trailScript.moveSpriteImages[(int)moves[movesCount - movementEndIndex]];
-        }
+        imageComponent.sprite = trailScript.moveSpriteImages[(int)moves[movesCount - 1]];
     }
 }

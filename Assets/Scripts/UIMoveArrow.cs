@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static SpoderTrail;
 
-public class UIMove0 : MonoBehaviour
+public class UIMoveArrow : MonoBehaviour
 {
     private Image imageComponent;
     public SpoderTrail trailScript;
