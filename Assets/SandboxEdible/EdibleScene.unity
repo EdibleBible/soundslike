@@ -704,6 +704,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2950027066642742242, guid: 4132b7c2ac5565e41aeb80dbadbfb1da, type: 3}
   m_PrefabInstance: {fileID: 679864002}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &434803873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1378404888339504636, guid: 869d8523238cbb84d868a2b321a39445, type: 3}
+  m_PrefabInstance: {fileID: 1814924941163725519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &486921363 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7709127730986611951, guid: 4132b7c2ac5565e41aeb80dbadbfb1da, type: 3}
@@ -2778,10 +2783,17 @@ PrefabInstance:
       propertyPath: firstJoint
       value: 
       objectReference: {fileID: 46556633}
+    - target: {fileID: 7157042150916130497, guid: 869d8523238cbb84d868a2b321a39445, type: 3}
+      propertyPath: trailScript
+      value: 
+      objectReference: {fileID: 8025290130140400158}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1378404888339504636, guid: 869d8523238cbb84d868a2b321a39445, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8025290130140400158}
   m_SourcePrefab: {fileID: 100100000, guid: 869d8523238cbb84d868a2b321a39445, type: 3}
 --- !u!81 &2468837521527709547
 AudioListener:
@@ -2919,6 +2931,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4048214615047782798, guid: 869d8523238cbb84d868a2b321a39445, type: 3}
   m_PrefabInstance: {fileID: 1814924941163725519}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8025290130140400158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434803873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec48277b3e6f28a478718863a77b9ae8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailJoints: []
+  moves: 
 --- !u!20 &9111501777835594806
 Camera:
   m_ObjectHideFlags: 0
