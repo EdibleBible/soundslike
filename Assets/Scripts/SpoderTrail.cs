@@ -33,7 +33,7 @@ public class SpoderTrail : MonoBehaviour
     {
         if (jointA.tag == jointB.tag)
         {
-            if (jointA.jointCoords > jointB.jointCoords || (int)jointA.jointCoords == 0 && (int)jointA.jointCoords == 7)
+            if ((jointA.jointCoords > jointB.jointCoords && (int)jointA.jointCoords - (int)jointB.jointCoords != 7) || (int)jointB.jointCoords - (int)jointA.jointCoords == 7)
             {
                 return MoveType.left;
             }
@@ -55,7 +55,7 @@ public class SpoderTrail : MonoBehaviour
         WebJoint jointB = trailJoints[trailLength];
         if (jointA.tag == jointB.tag)
         {
-            if (jointA.jointCoords > jointB.jointCoords || (int)jointA.jointCoords == 0 && (int)jointA.jointCoords == 7)
+            if ((jointA.jointCoords > jointB.jointCoords && (int)jointA.jointCoords - (int)jointB.jointCoords != 7) || (int)jointB.jointCoords - (int)jointA.jointCoords == 7)
             {
                 return MoveType.left;
             }

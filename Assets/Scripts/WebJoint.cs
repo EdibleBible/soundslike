@@ -153,6 +153,12 @@ public class WebJoint : MonoBehaviour
                 return ReturnJointLeft();
             }
         }
+
+        if (tag == "JointC")
+        {
+            isJointLeft = !isJointLeft;
+            isJointRight = !isJointRight;
+        }
         if (isJointLeft && !isJointRight)
         {
             return ReturnJointRight();
