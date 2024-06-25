@@ -91,14 +91,28 @@ public class WebJoint : MonoBehaviour
 
     public WebJoint ClosestJoint() //Randomly picks the next joint to face after jumping
     {
-        int randomValue = UnityEngine.Random.Range(0, 2);
-        if (randomValue == 0)
+        if (joints[player.direction] != null)
         {
-            return ReturnJointRight();
-        } else
-        {
-            return ReturnJointLeft();
+            return joints[player.direction];
         }
+
+        WebJoint leftJoint = ReturnJointLeft();
+        WebJoint rightJoint = ReturnJointRight();
+
+        if (leftJoint != null && rightJoint != null)
+        {
+            int randomValue = UnityEngine.Random.Range(0, 2);
+            if (randomValue == 0)
+            {
+                return ReturnJointRight();
+            }
+            else
+            {
+                return ReturnJointLeft();
+            }
+        }
+
+        if ()
     }
 
 }
