@@ -84,6 +84,48 @@ public class WebJoint : MonoBehaviour
         }
     }
 
+    public bool IsJointLeft()
+    {
+        int localDirection = player.direction;
+        if (localDirection == 0)
+        {
+            localDirection = 7;
+        }
+        else
+        {
+            --localDirection;
+        }
+        if (joints[localDirection] == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public bool IsJointRight()
+    {
+        int localDirection = player.direction;
+        if (localDirection == 7)
+        {
+            localDirection = 0;
+        }
+        else
+        {
+            ++localDirection;
+        }
+        if (joints[localDirection] == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     public WebJoint ReturnNextJoint() //Used by the player to retrieve the joint which is being faced
     {
         return nextJoint;
@@ -91,14 +133,35 @@ public class WebJoint : MonoBehaviour
 
     public WebJoint ClosestJoint() //Randomly picks the next joint to face after jumping
     {
-        int randomValue = UnityEngine.Random.Range(0, 2);
-        if (randomValue == 0)
+        if (joints[player.direction] != null)
+        {
+            return joints[player.direction];
+        }
+
+        bool isJointLeft = IsJointLeft();
+        bool isJointRight = IsJointRight();
+
+        if (!isJointLeft && !isJointRight)
+        {
+            int randomValue = UnityEngine.Random.Range(0, 2);
+            if (randomValue == 0)
+            {
+                return ReturnJointRight();
+            }
+            else
+            {
+                return ReturnJointLeft();
+            }
+        }
+        if (isJointLeft && !isJointRight)
         {
             return ReturnJointRight();
-        } else
+        }
+        if (!isJointLeft && isJointRight)
         {
             return ReturnJointLeft();
         }
+        return joints[player.direction];
     }
 
 }
