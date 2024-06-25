@@ -84,6 +84,48 @@ public class WebJoint : MonoBehaviour
         }
     }
 
+    public bool IsJointLeft()
+    {
+        int localDirection = player.direction;
+        if (localDirection == 0)
+        {
+            localDirection = 7;
+        }
+        else
+        {
+            --localDirection;
+        }
+        if (joints[localDirection] == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public bool IsJointRight()
+    {
+        int localDirection = player.direction;
+        if (localDirection == 7)
+        {
+            localDirection = 0;
+        }
+        else
+        {
+            ++localDirection;
+        }
+        if (joints[localDirection] == null)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     public WebJoint ReturnNextJoint() //Used by the player to retrieve the joint which is being faced
     {
         return nextJoint;
@@ -96,10 +138,10 @@ public class WebJoint : MonoBehaviour
             return joints[player.direction];
         }
 
-        WebJoint leftJoint = ReturnJointLeft();
-        WebJoint rightJoint = ReturnJointRight();
+        bool isJointLeft = IsJointLeft();
+        bool isJointRight = IsJointRight();
 
-        if (leftJoint != null && rightJoint != null)
+        if (!isJointLeft && !isJointRight)
         {
             int randomValue = UnityEngine.Random.Range(0, 2);
             if (randomValue == 0)
@@ -111,8 +153,15 @@ public class WebJoint : MonoBehaviour
                 return ReturnJointLeft();
             }
         }
-
-        if ()
+        if (isJointLeft && !isJointRight)
+        {
+            return ReturnJointRight();
+        }
+        if (!isJointLeft && isJointRight)
+        {
+            return ReturnJointLeft();
+        }
+        return joints[player.direction];
     }
 
 }

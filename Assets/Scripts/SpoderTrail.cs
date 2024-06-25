@@ -8,7 +8,7 @@ public class SpoderTrail : MonoBehaviour
     [NonSerialized] public List<WebJoint> trailJoints = new();
     [NonSerialized] public List<MoveType> moves = new();
     public List<Sprite> moveSpriteImages = new();
-    public enum MoveType { side, up, down };
+    public enum MoveType { side, up, down, right, left };
     public delegate void UpdateMoveSpriteHandler(Sprite moveSpriteImage);
     public event UpdateMoveSpriteHandler UpdateMoveSprite;
 
@@ -33,11 +33,39 @@ public class SpoderTrail : MonoBehaviour
     {
         if (jointA.tag == jointB.tag)
         {
-            return MoveType.side;
+            if (jointA.jointCoords > jointB.jointCoords || (int)jointA.jointCoords == 0 && (int)jointA.jointCoords == 7)
+            {
+                return MoveType.left;
+            }
+            return MoveType.right;
         } else if (jointA.tag != jointB.tag && jointA.jointCoords < jointB.jointCoords)
         {
             return MoveType.up;
         } else if (jointA.tag != jointB.tag && jointA.jointCoords > jointB.jointCoords)
+        {
+            return MoveType.down;
+        }
+        return MoveType.side;
+    }
+
+    public MoveType DetectMove()
+    {
+        int trailLength = trailJoints.Count;
+        WebJoint jointA = trailJoints[trailLength - 1];
+        WebJoint jointB = trailJoints[trailLength];
+        if (jointA.tag == jointB.tag)
+        {
+            if (jointA.jointCoords > jointB.jointCoords || (int)jointA.jointCoords == 0 && (int)jointA.jointCoords == 7)
+            {
+                return MoveType.left;
+            }
+            return MoveType.right;
+        }
+        else if (jointA.tag != jointB.tag && jointA.jointCoords < jointB.jointCoords)
+        {
+            return MoveType.up;
+        }
+        else if (jointA.tag != jointB.tag && jointA.jointCoords > jointB.jointCoords)
         {
             return MoveType.down;
         }
