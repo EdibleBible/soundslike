@@ -12,12 +12,7 @@ public class JointBase : MonoBehaviour
     {
         player = spoder;
         player.transform.position = transform.position;
-        player.transform.LookAt(nextJoint.transform);
-    }
-
-    private void Update()
-    {
-        
+        player.transform.LookAt(ClosestJoint().transform);
     }
 
     public JointBase Jump()
@@ -30,5 +25,85 @@ public class JointBase : MonoBehaviour
     public void SetDirection()
     {
         player.transform.LookAt(nextJoint.transform);
+    }
+
+    public void SwitchRight()
+    {
+        while (true)
+        {
+            if (player.direction == 7)
+            {
+                player.direction = 0;
+            } else
+            {
+                ++player.direction;
+            }
+            if (joints[player.direction] == null)
+            {
+                continue;
+            } else
+            {
+                nextJoint = joints[player.direction];
+                break;
+            }
+
+        }
+        player.transform.LookAt(nextJoint.transform);
+    }
+
+    public void SwitchLeft()
+    {
+        while (true)
+        {
+            if (player.direction == 0)
+            {
+                player.direction = 7;
+            }
+            else
+            {
+                --player.direction;
+            }
+            if (joints[player.direction] == null)
+            {
+                continue;
+            }
+            else
+            {
+                nextJoint = joints[player.direction];
+                break;
+            }
+
+        }
+        player.transform.LookAt(nextJoint.transform);
+    }
+
+    public JointBase ClosestJoint()
+    {
+        if (joints[player.direction] == null)
+        {
+            while (true)
+            {
+                if (player.direction == 7)
+                {
+                    player.direction = 0;
+                }
+                else
+                {
+                    ++player.direction;
+                }
+                if (joints[player.direction] == null)
+                {
+                    continue;
+                }
+                else
+                {
+                    return joints[player.direction];
+                }
+
+            }
+        } else
+        {
+            return joints[player.direction];
+        }
     }
 }

@@ -6,6 +6,7 @@ public class Spoder : MonoBehaviour
 {
     public JointBase firstJoint;
     public JointBase currentJoint;
+    public int direction;
 
     void Start()
     {
@@ -18,6 +19,14 @@ public class Spoder : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             currentJoint =  currentJoint.Jump();
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            currentJoint.SwitchRight();
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            currentJoint.SwitchLeft();
         }
     }
 }
