@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static SpoderTrail;
 
-public class UIMove0 : MonoBehaviour
+public class UIMoveArrow : MonoBehaviour
 {
     private Image imageComponent;
     public SpoderTrail trailScript;
+    public int movementEndIndex;
 
     private void Start()
     {
@@ -23,8 +25,12 @@ public class UIMove0 : MonoBehaviour
         trailScript.UpdateMoveSprite -= UpdateSprite;
     }
 
-    private void UpdateSprite(Sprite arrowSprite)
+    private void UpdateSprite(List<MoveType> moves)
     {
-        imageComponent.sprite = arrowSprite;
+        int movesCount = moves.Count;
+        if (movesCount >= movementEndIndex)
+        {
+            imageComponent.sprite = trailScript.moveSpriteImages[(int)moves[movesCount - movementEndIndex]];
+        }
     }
 }
