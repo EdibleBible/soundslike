@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static SpoderTrail;
+using static SO_Enums;
 
 public class UIMoveArrow : MonoBehaviour
 {
     private Image imageComponent;
-    public SpoderTrail trailScript;
     public int movementEndIndex;
 
     private void Start()
@@ -17,20 +16,20 @@ public class UIMoveArrow : MonoBehaviour
 
     private void OnEnable()
     {
-        trailScript.UpdateMoveSprite += UpdateSprite;
+        SO_Events.UpdateMoveSprite += UpdateSprite;
     }
 
     private void OnDisable()
     {
-        trailScript.UpdateMoveSprite -= UpdateSprite;
+        SO_Events.UpdateMoveSprite -= UpdateSprite;
     }
 
-    private void UpdateSprite(List<MoveType> moves)
+    private void UpdateSprite(List<MoveType> moves, List<Sprite> sprites)
     {
         int movesCount = moves.Count;
         if (movesCount >= movementEndIndex)
         {
-            imageComponent.sprite = trailScript.moveSpriteImages[(int)moves[movesCount - movementEndIndex]];
+            imageComponent.sprite = sprites[(int)moves[movesCount - movementEndIndex]];
         }
     }
 }
