@@ -16,11 +16,11 @@ public class SO_Events : ScriptableObject
     }
 
     // Declares the event which makes every enemy get attacked
-    public delegate void AttackEnemy();
+    public delegate void AttackEnemy(int attackIndex);
     public static event AttackEnemy AttackEvent;
 
-    public static void CallAttackEvent() //Called by the player attack script (can't just Invoke from there)
+    public static void CallAttackEvent(int attackIndex) //Called by the player attack script (can't just Invoke from there)
     {
-        AttackEvent.Invoke();
+        AttackEvent.Invoke(attackIndex);
     }
 }
