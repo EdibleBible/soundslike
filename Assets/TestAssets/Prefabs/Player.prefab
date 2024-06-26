@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461420ee5510a854897f6c6ceb7dfcd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstJoint: {fileID: 0}
   trailScript: {fileID: 6259500252638144471}
   attackScript: {fileID: 8357067912704157406}
+  levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
 --- !u!114 &6259500252638144471
 MonoBehaviour:
   m_ObjectHideFlags: 0

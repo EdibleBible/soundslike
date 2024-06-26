@@ -13,7 +13,7 @@ public class SpoderTrail : MonoBehaviour
 
     private void Start()
     {
-        history.trailJoints.Add(player.firstJoint); //Brute forces the Center joint into this list so that Moves list can work properly with the first movement
+        history.trailJoints.Add(player.levelInfo.heartObject.GetComponent<WebJoint>()); //Brute forces the Center joint into this list so that Moves list can work properly with the first movement
     }
 
     public void StartTrailing(WebJoint initialJoint) //Restarts the list of moves & joint history

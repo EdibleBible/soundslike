@@ -7,16 +7,16 @@ using static SO_Events;
 
 public class Spoder : MonoBehaviour
 {
-    public WebJoint firstJoint; //The center joint the player is attached to at the beginning of the game
     [NonSerialized] public WebJoint currentJoint; //The joint the player is on
     [NonSerialized] public int direction; //The direction the player is facing
     public SpoderTrail trailScript; //Script which handles the trail the player walks
     public SpoderAttack attackScript; //Script which handles sttacking
+    public SO_CurrentLevel levelInfo;
 
     void Start()
     {
-        firstJoint.AttachPlayer(this); //Attaches the player to the Center joint assigned in Inspector
-        currentJoint = firstJoint; //Sets the current joint reference in palyer memory to be the Center joint
+        currentJoint = levelInfo.heartObject.GetComponent<WebJoint>();
+        currentJoint.AttachPlayer(this); //Attaches the player to the Center joint assigned in Inspector
         trailScript.StartTrailing(currentJoint); //Idk if it actually works lmao
     }
 
