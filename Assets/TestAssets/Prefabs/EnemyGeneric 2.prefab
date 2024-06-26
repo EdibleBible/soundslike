@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 603749872804466504}
   - component: {fileID: 761355441676396757}
   m_Layer: 0
-  m_Name: EnemyGeneric
+  m_Name: EnemyGeneric 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8110396b987faa8448f08e982354e9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
+  type: 2
   audioPlayer: {fileID: 7116779588359468413}
   attacks: {fileID: 11400000, guid: dd7b0f897ec5a164484f8bf45cc83692, type: 2}
   levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f4fdb89f2095894eaad96b6b24e8794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.2
+  movementSpeed: 0.5
 --- !u!114 &7116779588359468413
 MonoBehaviour:
   m_ObjectHideFlags: 0
