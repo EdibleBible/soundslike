@@ -10,6 +10,8 @@ public class SpoderTrail : MonoBehaviour
     [Tooltip("The Spoder component of this player")] public Spoder player;
     [Tooltip("Scriptable Object which holds the joint & move history")] public SO_MoveHistory history;
     [Tooltip("Sprites of movement icons in UI (in the order of MoveType enum")] public List<Sprite> moveSpriteImages = new();
+    [Tooltip("Material for the LineRenderer")] public Material lineMaterial;
+    private List<LineRenderer> lineRenderers = new List<LineRenderer>();
 
     private void Start()
     {
@@ -30,8 +32,32 @@ public class SpoderTrail : MonoBehaviour
         history.trailJoints.Add(nextJoint);
         MoveType latestMove = DetectMove(history.trailJoints[trailLength - 1], history.trailJoints[trailLength]); //Calls to detect the type of movement between this and the previous movement
         history.moves.Add(latestMove);
+        DrawLine();
         UpdateMoveSprites(history.moves, moveSpriteImages); //Calls the event which updates the UI sprites of the movement history
         return latestMove; // Currently unused but still implemented incase the latest move has to be called
+    }
+
+    public void DrawLine()
+    {
+        GameObject lineObj = new GameObject("Line");
+        LineRenderer lineRenderer = lineObj.AddComponent<LineRenderer>();
+
+        // Configure the line renderer
+        lineRenderer.material = lineMaterial;
+        lineRenderer.positionCount = 2;
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+
+        // Get the second-to-last and last objects
+        GameObject secondToLastObject = history.trailJoints[history.trailJoints.Count - 2].gameObject;
+        GameObject lastObject = history.trailJoints[history.trailJoints.Count - 1].gameObject;
+
+        // Set the positions for the line renderer
+        lineRenderer.SetPosition(0, secondToLastObject.transform.position);
+        lineRenderer.SetPosition(1, lastObject.transform.position);
+
+        // Add the line renderer to the list
+        lineRenderers.Add(lineRenderer);
     }
 
     //DANGER ZONE WORKS MYSTERIOUSLY
