@@ -7,14 +7,22 @@ using static SO_Enums;
 
 public class SpoderTrail : MonoBehaviour
 {
-    private List<WebJoint> trailJoints = new();
-    private List<MoveType> moves = new();
+    public Spoder player;
+    public List<WebJoint> trailJoints = new();
+    public List<MoveType> moves = new();
     public List<Sprite> moveSpriteImages = new();
+
+    private void Start()
+    {
+        trailJoints.Add(player.firstJoint);
+    }
 
     public void StartTrailing(WebJoint initialJoint)
     {
         trailJoints.Clear();
         trailJoints.Add(initialJoint);
+        moves.Clear();
+        UpdateMoveSprites(moves, moveSpriteImages);
     }
 
     public MoveType ExtendTrail(WebJoint nextJoint)

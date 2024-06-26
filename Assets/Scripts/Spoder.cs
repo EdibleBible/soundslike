@@ -15,19 +15,19 @@ public class Spoder : MonoBehaviour
     {
         firstJoint.AttachPlayer(this);
         currentJoint = firstJoint;
-
+        trailScript.StartTrailing(currentJoint);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.W))
         {
+            currentJoint = currentJoint.Jump();
+            trailScript.ExtendTrail(currentJoint);
             if (currentJoint.jointCoords == JointCoords.Center)
             {
                 trailScript.StartTrailing(currentJoint);
             }
-            currentJoint = currentJoint.Jump();
-            trailScript.ExtendTrail(currentJoint);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
@@ -38,6 +38,10 @@ public class Spoder : MonoBehaviour
         {
             currentJoint.SwitchLeft();
             transform.LookAt(currentJoint.ReturnNextJoint().transform);
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            trailScript.StartTrailing(currentJoint);
         }
     }
 }

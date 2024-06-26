@@ -30,6 +30,9 @@ public class UIMoveArrow : MonoBehaviour
         if (movesCount >= movementEndIndex)
         {
             imageComponent.sprite = sprites[(int)moves[movesCount - movementEndIndex]];
+        } else
+        {
+            imageComponent.sprite = sprites[0];
         }
     }
 }
