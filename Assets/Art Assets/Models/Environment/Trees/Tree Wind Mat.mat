@@ -43,7 +43,7 @@ Material:
     m_Floats:
     - _Actual_Bend_Strenght: 1500
     - _Bend_Division_Multiplier: 1500
-    - _Bend_Strenght: 0.09
+    - _Bend_Strenght: 3.95
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
