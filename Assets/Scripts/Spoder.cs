@@ -13,6 +13,10 @@ public class Spoder : MonoBehaviour
     public SpoderAttack attackScript; //Script which handles sttacking
     public SO_CurrentLevel levelInfo;
 
+    public AudioSource sourceW;
+    public AudioSource sourceA;
+    public AudioSource sourceD;
+
     void Start()
     {
         currentJoint = levelInfo.heartObject.GetComponent<WebJoint>();
@@ -30,16 +34,22 @@ public class Spoder : MonoBehaviour
             {
                 trailScript.StartTrailing(currentJoint);
             }
+
+            sourceW.Play();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             currentJoint.SwitchRight();
             transform.LookAt(currentJoint.ReturnNextJoint().transform);
+
+            sourceD.Play();
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             currentJoint.SwitchLeft();
             transform.LookAt(currentJoint.ReturnNextJoint().transform);
+
+            sourceA.Play();
         }
         if (Input.GetKeyDown(KeyCode.Space)) //Begins attack & resets the move list & joint history manually
         {
