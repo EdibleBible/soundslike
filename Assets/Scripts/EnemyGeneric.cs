@@ -10,7 +10,17 @@ public class EnemyGeneric : MonoBehaviour, IEnemy
     public AudioPlayer audioPlayer;
     private List<AudioClip> audioClipList = new();
     public SO_Attacks attacks;
+    public SO_CurrentLevel levelInfo;
+    public int damageToPlayer = 1;
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<WebHeart>() != null)
+        {
+            other.GetComponent<WebHeart>().GetHurt(damageToPlayer);
+            gameObject.SetActive(false);
+        }
+    }
 
     private void OnEnable() //Subscribes to the attack event
     {
@@ -25,6 +35,11 @@ public class EnemyGeneric : MonoBehaviour, IEnemy
     private void OnDisable() //Unsubscribes from the attack event
     {
         AttackEvent -= Damage;
+    }
+
+    private void Start()
+    {
+        transform.LookAt(levelInfo.heartObject.transform.position);
     }
 
     public void Damage(int attackIndex)
