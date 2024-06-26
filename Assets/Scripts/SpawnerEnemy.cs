@@ -25,6 +25,10 @@ public class SpawnerEnemy : MonoBehaviour
 
         while (true)
         {
+
+            // Wait for the specified interval
+            yield return new WaitForSeconds(interval);
+
             if (enemyPrefabs.Count == 0)
             {
                 yield break; // Exit coroutine if the list is empty
@@ -66,8 +70,6 @@ public class SpawnerEnemy : MonoBehaviour
             // Increment the index and wrap around if necessary
             index = (index + 1) % enemyPrefabs.Count;
 
-            // Wait for the specified interval
-            yield return new WaitForSeconds(interval);
         }
     }
 }
