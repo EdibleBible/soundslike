@@ -5,13 +5,18 @@ using static SO_Enums;
 
 [CreateAssetMenu(fileName = "SO_Attacks", menuName = "ScriptableObjects/Attacks")]
 
-//Currently more or less unused
+//List of attacks, right now without names
 
 public class SO_Attacks : ScriptableObject
 {
+    public List<MoveType> attack0 = new();
     public List<MoveType> attack1 = new();
     public List<MoveType> attack2 = new();
     public List<MoveType> attack3 = new();
     public List<MoveType> attack4 = new();
-    public List<MoveType> attack5 = new();
+    public AudioClip attackSound0;
+    public AudioClip attackSound1;
+    public AudioClip attackSound2;
+    public AudioClip attackSound3;
+    public AudioClip attackSound4;
 }
