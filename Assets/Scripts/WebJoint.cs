@@ -21,7 +21,6 @@ public class WebJoint : MonoBehaviour
 
     public WebJoint Jump() //Called by the player to switch the joint
     {
-        Debug.Log("Jumped from " + jointCoords + " to " + nextJoint.jointCoords);
         nextJoint.AttachPlayer(player); // Runs the method to attach the player to the next joint
         player = null; //Removes the reference to the player from this joint (so that when this variable is null you know this joint doesn't have a player right now)
         return nextJoint;   //Returns the reference to the joint the player switched to to the player memory
