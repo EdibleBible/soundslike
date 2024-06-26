@@ -43,7 +43,7 @@ public class Spoder : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space)) //Begins attack & resets the move list & joint history manually
         {
-            if (attackScript.CanAttack())
+            if (attackScript.CanAttack() && levelInfo.enemiesInLevel.Count != 0)
             {
                 Debug.Log(attackScript.GetAttackIndex());
                 CallAttackEvent(attackScript.GetAttackIndex());
