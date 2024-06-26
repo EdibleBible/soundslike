@@ -14,4 +14,13 @@ public class SO_Events : ScriptableObject
     {
         UpdateMoveSprite.Invoke(moves, sprites);
     }
+
+    // Declares the event which makes every enemy get attacked
+    public delegate void AttackEnemy();
+    public static event AttackEnemy AttackEvent;
+
+    public static void CallAttackEvent() //Called by the player attack script (can't just Invoke from there)
+    {
+        AttackEvent.Invoke();
+    }
 }

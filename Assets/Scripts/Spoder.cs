@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static SO_Enums;
+using static SO_Events;
 
 public class Spoder : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Spoder : MonoBehaviour
     [NonSerialized] public WebJoint currentJoint; //The joint the player is on
     [NonSerialized] public int direction; //The direction the player is facing
     public SpoderTrail trailScript; //Script which handles the trail the player walks
+    public SpoderAttack attackScript; //Script which handles sttacking
 
     void Start()
     {
@@ -39,9 +41,13 @@ public class Spoder : MonoBehaviour
             currentJoint.SwitchLeft();
             transform.LookAt(currentJoint.ReturnNextJoint().transform);
         }
-        if (Input.GetKeyDown(KeyCode.Space)) //Resets the move list & joint history manually
+        if (Input.GetKeyDown(KeyCode.Space)) //Begins attack & resets the move list & joint history manually
         {
-            trailScript.StartTrailing(currentJoint);
+            if (attackScript.Attack())
+            {
+                CallAttackEvent();
+                trailScript.StartTrailing(currentJoint);
+            }
         }
     }
 }
