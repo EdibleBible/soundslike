@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class SpoderTrail : MonoBehaviour
 {
-    [NonSerialized] public List<WebJoint> trailJoints = new();
-    [NonSerialized] public List<MoveType> moves = new();
+    private List<WebJoint> trailJoints = new();
+    private List<MoveType> moves = new();
     public List<Sprite> moveSpriteImages = new();
     public enum MoveType { side, up, down, right, left };
-    public delegate void UpdateMoveSpriteHandler(Sprite moveSpriteImage);
+    public delegate void UpdateMoveSpriteHandler(List<MoveType> moveList);
     public event UpdateMoveSpriteHandler UpdateMoveSprite;
 
     public void StartTrailing(WebJoint initialJoint)
@@ -25,7 +25,7 @@ public class SpoderTrail : MonoBehaviour
         MoveType latestMove = DetectMove(trailJoints[trailLength - 1], trailJoints[trailLength]);
         moves.Add(latestMove);
         Debug.Log(latestMove);
-        UpdateMoveSprite.Invoke(moveSpriteImages[(int)latestMove]);
+        UpdateMoveSprite.Invoke(moves);
         return latestMove;
     }
 
