@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4048214615047782798}
   - component: {fileID: 7157042150916130497}
   - component: {fileID: 6259500252638144471}
+  - component: {fileID: 8357067912704157406}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -48,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstJoint: {fileID: 0}
   trailScript: {fileID: 6259500252638144471}
+  attackScript: {fileID: 8357067912704157406}
 --- !u!114 &6259500252638144471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,12 +63,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 7157042150916130497}
+  history: {fileID: 11400000, guid: aa398e2fda0fb7b458a654d2d1372b2b, type: 2}
   moveSpriteImages:
   - {fileID: 21300000, guid: ba894c14c5bf6ae4baf9de05db0e51cc, type: 3}
   - {fileID: 21300000, guid: 77703abc1f6e0644e8c4e97ab860a3bf, type: 3}
   - {fileID: 21300000, guid: be48924326bc8164bbaecab23c3968cc, type: 3}
   - {fileID: 21300000, guid: 1b71f9ef81942bf46a8d7f4915949003, type: 3}
   - {fileID: 21300000, guid: 136f4639d87af994280a79bf01a8f462, type: 3}
+--- !u!114 &8357067912704157406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378404888339504636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 700a35d44f5cb7944a051ccb60a96507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attacks: {fileID: 11400000, guid: dd7b0f897ec5a164484f8bf45cc83692, type: 2}
+  moveHistory: {fileID: 11400000, guid: aa398e2fda0fb7b458a654d2d1372b2b, type: 2}
 --- !u!1 &7596514783829881044
 GameObject:
   m_ObjectHideFlags: 0

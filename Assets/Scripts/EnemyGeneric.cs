@@ -27,9 +27,16 @@ public class EnemyGeneric : MonoBehaviour, IEnemy
         AttackEvent -= Damage;
     }
 
-    public void Damage()
+    public void Damage(int attackIndex)
     {
-        Debug.Log("dupa");
-        audioPlayer.PlayAudio(audioClipList[(int)type]);
+        if (attackIndex == (int)type)
+        {
+            Debug.Log("dupa");
+            if (audioClipList[(int)type] != null)
+            {
+                Debug.Log("dupaExtra");
+                audioPlayer.PlayAudio(audioClipList[(int)type]);
+            }
+        }
     }
 }

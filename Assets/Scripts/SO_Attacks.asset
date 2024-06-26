@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deef69723fe54ad419cea2b931f1d305, type: 3}
   m_Name: SO_Attacks
   m_EditorClassIdentifier: 
-  attack1: 01000000040000000100000001000000
+  attack0: 01000000030000000100000001000000
+  attack1: 
   attack2: 
   attack3: 
   attack4: 
-  attack5: 
+  attackSound0: {fileID: 0}
+  attackSound1: {fileID: 0}
+  attackSound2: {fileID: 0}
+  attackSound3: {fileID: 0}
+  attackSound4: {fileID: 0}
