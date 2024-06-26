@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 9aa8bd1094b6456459862b9410437851
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Sanki.unity
     guid: 3d24960530ade69469baa1f432a6de81
+  - enabled: 1
+    path: Assets/Scenes/EdibleSanki2.unity
+    guid: 18b04cbef5ff0d44d958a1e0b0d62499
   m_configObjects: {}
