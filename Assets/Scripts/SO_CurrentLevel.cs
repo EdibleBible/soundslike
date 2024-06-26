@@ -7,4 +7,5 @@ using UnityEngine;
 public class SO_CurrentLevel : ScriptableObject
 {
     public GameObject heartObject;
+    public List<GameObject> enemiesInLevel = new();
 }

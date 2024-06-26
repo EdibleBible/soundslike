@@ -46,12 +46,12 @@ public class EnemyGeneric : MonoBehaviour, IEnemy
     {
         if (attackIndex == (int)type)
         {
-            Debug.Log("dupa");
             if (audioClipList[(int)type] != null)
             {
-                Debug.Log("dupaExtra");
                 audioPlayer.PlayAudio(audioClipList[(int)type]);
             }
+            levelInfo.enemiesInLevel.Remove(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
