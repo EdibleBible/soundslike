@@ -16,6 +16,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     void Start()
     {
+        levelInfo.enemiesInLevel.Clear();
         StartCoroutine(LoopSpawning());
     }
 

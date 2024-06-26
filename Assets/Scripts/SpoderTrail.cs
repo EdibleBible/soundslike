@@ -34,6 +34,7 @@ public class SpoderTrail : MonoBehaviour
         history.moves.Add(latestMove);
         DrawLine();
         // UpdateMoveSprites(history.moves, moveSpriteImages); //Calls the event which updates the UI sprites of the movement history
+        Debug.Log(history.trailJoints[history.trailJoints.Count - 1]);
         return latestMove; // Currently unused but still implemented incase the latest move has to be called
     }
 
