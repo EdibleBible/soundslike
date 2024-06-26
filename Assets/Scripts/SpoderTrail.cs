@@ -7,36 +7,37 @@ using static SO_Enums;
 
 public class SpoderTrail : MonoBehaviour
 {
-    public Spoder player;
-    public List<WebJoint> trailJoints = new();
-    public List<MoveType> moves = new();
-    public List<Sprite> moveSpriteImages = new();
+    [Tooltip("The Spoder component of this player")] public Spoder player;
+    [NonSerialized] public List<WebJoint> trailJoints = new();
+    [NonSerialized] public List<MoveType> moves = new();
+    [Tooltip("Sprites of movement icons in UI (in the order of MoveType enum")] public List<Sprite> moveSpriteImages = new();
 
     private void Start()
     {
-        trailJoints.Add(player.firstJoint);
+        trailJoints.Add(player.firstJoint); //Brute forces the Center joint into this list so that Moves list can work properly with the first movement
     }
 
-    public void StartTrailing(WebJoint initialJoint)
+    public void StartTrailing(WebJoint initialJoint) //Restarts the list of moves & joint history
     {
         trailJoints.Clear();
         trailJoints.Add(initialJoint);
         moves.Clear();
-        UpdateMoveSprites(moves, moveSpriteImages);
+        UpdateMoveSprites(moves, moveSpriteImages); //Calls the event which updates the UI sprites of the movement history
     }
 
-    public MoveType ExtendTrail(WebJoint nextJoint)
+    public MoveType ExtendTrail(WebJoint nextJoint) //Handles adding a new entry into the list of moves & joint history
     {
         int trailLength = trailJoints.Count;
         trailJoints.Add(nextJoint);
-        MoveType latestMove = DetectMove(trailJoints[trailLength - 1], trailJoints[trailLength]);
+        MoveType latestMove = DetectMove(trailJoints[trailLength - 1], trailJoints[trailLength]); //Calls to detect the type of movement between this and the previous movement
         moves.Add(latestMove);
-        Debug.Log(latestMove);
-        UpdateMoveSprites(moves, moveSpriteImages);
-        return latestMove;
+        UpdateMoveSprites(moves, moveSpriteImages); //Calls the event which updates the UI sprites of the movement history
+        return latestMove; // Currently unused but still implemented incase the latest move has to be called
     }
 
-    public MoveType DetectMove(WebJoint jointA, WebJoint jointB)
+    //DANGER ZONE WORKS MYSTERIOUSLY
+
+    public MoveType DetectMove(WebJoint jointA, WebJoint jointB) //Used to detect the movement type, mostly for UI arrows
     {
         if (jointA.tag == jointB.tag)
         {
@@ -55,7 +56,7 @@ public class SpoderTrail : MonoBehaviour
         return MoveType.side;
     }
 
-    public MoveType DetectMove()
+    public MoveType DetectMove() //Used to detect the movement type, mostly for determining player rotation 
     {
         int trailLength = trailJoints.Count;
         WebJoint jointA = trailJoints[trailLength - 1];

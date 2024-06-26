@@ -5,6 +5,8 @@ using static SO_Enums;
 
 [CreateAssetMenu(fileName = "SO_Attacks", menuName = "ScriptableObjects/Attacks")]
 
+//Currently more or less unused
+
 public class SO_Attacks : ScriptableObject
 {
     public List<MoveType> attack1 = new();
