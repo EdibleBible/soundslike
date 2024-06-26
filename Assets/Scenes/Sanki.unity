@@ -3651,18 +3651,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 262819968927593118, guid: cf231e679697c32458ce9631c96ba880, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.14261
-      objectReference: {fileID: 0}
-    - target: {fileID: 262819968927593118, guid: cf231e679697c32458ce9631c96ba880, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.14261
-      objectReference: {fileID: 0}
-    - target: {fileID: 262819968927593118, guid: cf231e679697c32458ce9631c96ba880, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.14261
-      objectReference: {fileID: 0}
-    - target: {fileID: 262819968927593118, guid: cf231e679697c32458ce9631c96ba880, type: 3}
       propertyPath: m_LocalPosition.x
       value: 708.969
       objectReference: {fileID: 0}
@@ -3705,14 +3693,6 @@ PrefabInstance:
     - target: {fileID: 5427486683366905579, guid: cf231e679697c32458ce9631c96ba880, type: 3}
       propertyPath: m_Name
       value: PLAYER
-      objectReference: {fileID: 0}
-    - target: {fileID: 5427486683366905579, guid: cf231e679697c32458ce9631c96ba880, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7983954705829332397, guid: cf231e679697c32458ce9631c96ba880, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

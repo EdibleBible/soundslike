@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7164144817453556528}
   - component: {fileID: 8732752965652912600}
   - component: {fileID: 1312520268273422315}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PLAYER
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -51,6 +51,9 @@ MonoBehaviour:
   trailScript: {fileID: 7164144817453556528}
   attackScript: {fileID: 8732752965652912600}
   levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
+  sourceW: {fileID: 0}
+  sourceA: {fileID: 0}
+  sourceD: {fileID: 0}
 --- !u!114 &7164144817453556528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +200,7 @@ GameObject:
   - component: {fileID: 5920192510721478834}
   - component: {fileID: 8488239598574216312}
   - component: {fileID: 3892270457480168709}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Spider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
