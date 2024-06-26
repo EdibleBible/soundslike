@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SO_Attacks
   m_EditorClassIdentifier: 
   attack0: 01000000030000000100000001000000
-  attack1: 
-  attack2: 
-  attack3: 
-  attack4: 
-  attackSound0: {fileID: 0}
-  attackSound1: {fileID: 0}
-  attackSound2: {fileID: 0}
-  attackSound3: {fileID: 0}
-  attackSound4: {fileID: 0}
+  attack1: 01000000010000000100000003000000020000000200000002000000
+  attack2: 01000000010000000400000002000000
+  attack3: 0100000001000000010000000300000003000000
+  attack4: 01000000010000000100000004000000
+  attackSound0: {fileID: 8300000, guid: a7d27ec7be8ca494f8184956f8f86b00, type: 3}
+  attackSound1: {fileID: 8300000, guid: b2c7f468b247f744da665acebfc37e78, type: 3}
+  attackSound2: {fileID: 8300000, guid: 7f561ad1c027f62429975ba01a7e806f, type: 3}
+  attackSound3: {fileID: 8300000, guid: 1287d73e673e75043ac9dbb237ade28b, type: 3}
+  attackSound4: {fileID: 8300000, guid: 5410639679ba957429de3c024ccfe55a, type: 3}
