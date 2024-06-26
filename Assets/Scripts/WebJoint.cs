@@ -13,26 +13,26 @@ public class WebJoint : MonoBehaviour
 
     public void AttachPlayer(Spoder spoder) //Called at the beginning & when jumping to switch the joint the player is on
     {
-        player = spoder;
-        player.transform.position = transform.position;
-        nextJoint = ClosestJoint();
-        player.transform.LookAt(nextJoint.transform);
+        player = spoder; //Saves the reference to the player locally (is null if this joint doesn't have a player right now)
+        player.transform.position = transform.position; //Teleports the player to the position of this joint
+        nextJoint = ClosestJoint(); //Calls the method to find the next best candidate for the next joint in this direction
+        player.transform.LookAt(nextJoint.transform); //Rotates the player to face the next joint
     }
 
     public WebJoint Jump() //Called by the player to switch the joint
     {
         Debug.Log("Jumped from " + jointCoords + " to " + nextJoint.jointCoords);
-        nextJoint.AttachPlayer(player);
-        player = null;
+        nextJoint.AttachPlayer(player); // Runs the method to attach the player to the next joint
+        player = null; //Removes the reference to the player from this joint (so that when this variable is null you know this joint doesn't have a player right now)
         return nextJoint;   //Returns the reference to the joint the player switched to to the player memory
     }
 
-    public void SwitchLeft()
+    public void SwitchLeft() //Turns the player to face the next leftmost joint
     {
         nextJoint = ReturnJointLeft();
     }
 
-    public void SwitchRight()
+    public void SwitchRight() //Turns the player to face the next rightmost joint
     {
         nextJoint = ReturnJointRight();
     }
@@ -55,7 +55,7 @@ public class WebJoint : MonoBehaviour
             }
             else
             {
-                return joints[player.direction];
+                return joints[player.direction]; //Returns the joint from the list which is closest at leftmost
             }
 
         }
@@ -79,13 +79,13 @@ public class WebJoint : MonoBehaviour
             }
             else
             {
-                return joints[player.direction];
+                return joints[player.direction]; //Returns the joint from the list which is closest at rightmost
             }
 
         }
     }
 
-    public bool IsJointLeft()
+    public bool IsJointLeft() //Determines whether there is a joint directly (at 45 degrees) to the left of the player
     {
         int localDirection = player.direction;
         if (localDirection == 0)
@@ -106,7 +106,7 @@ public class WebJoint : MonoBehaviour
         }
     }
 
-    public bool IsJointRight()
+    public bool IsJointRight() //Determines whether there is a joint directly (at 45 degrees) to the right of the player
     {
         int localDirection = player.direction;
         if (localDirection == 7)
@@ -127,14 +127,14 @@ public class WebJoint : MonoBehaviour
         }
     }
 
-    public WebJoint ReturnNextJoint() //Used by the player to retrieve the joint which is being faced
+    public WebJoint ReturnNextJoint() //Used by the player script to retrieve the joint which is being faced
     {
         return nextJoint;
     }
 
     public WebJoint ClosestJoint() //Randomly picks the next joint to face after jumping
     {
-        if (joints[player.direction] != null)
+        if (joints[player.direction] != null) //First it looks forward. If there is a joint, the direction doesn't change
         {
             return joints[player.direction];
         }
@@ -142,7 +142,7 @@ public class WebJoint : MonoBehaviour
         bool isJointLeft = IsJointLeft();
         bool isJointRight = IsJointRight();
 
-        if (!isJointLeft && !isJointRight)
+        if (!isJointLeft && !isJointRight) //If there is no joint immediately to either side, it randomly picks either side and searches for a joint there. Used at edges (layer C)
         {
             int randomValue = UnityEngine.Random.Range(0, 2);
             if (randomValue == 0)
@@ -155,11 +155,13 @@ public class WebJoint : MonoBehaviour
             }
         }
 
-        if (tag == "JointC")
+        if (tag == "JointC") //Fixes a bug where at the edge (layer C) left & right are switched. It switches them again lmao
         {
             isJointLeft = !isJointLeft;
             isJointRight = !isJointRight;
         }
+
+        //Used at joints A1, A3, A5, A7, B1, B3, B5, B7 when moving sideways to make the player face sideways instead of facing outwards
         if (isJointLeft && !isJointRight)
         {
             return ReturnJointRight();
@@ -168,6 +170,8 @@ public class WebJoint : MonoBehaviour
         {
             return ReturnJointLeft();
         }
+
+        //If anything else fails (though it shouldn't), the direction doesn't change and the script tries to get a joint from there)
         return joints[player.direction];
     }
 
