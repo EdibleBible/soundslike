@@ -6,13 +6,9 @@ using static SO_Enums;
 
 public class UIMoveArrow : MonoBehaviour
 {
-    private Image imageComponent;
+    public Image imageComponent;
     public int movementEndIndex; //Which in order is this value from last in the move list supposed to be. Starts at 1
-
-    private void Start()
-    {
-        imageComponent = GetComponent<Image>(); //Saves the Image component of this object to memory for later use
-    }
+    public Sprite noMoveSprite;
 
     private void OnEnable() //Subscribes to the sprite update event
     {
@@ -32,7 +28,7 @@ public class UIMoveArrow : MonoBehaviour
             imageComponent.sprite = sprites[(int)moves[movesCount - movementEndIndex]]; //Gets the sprite at the index matching the move (cast to int) it's supposed to be
         } else
         {
-            imageComponent.sprite = sprites[0]; //Resets the sprite to default "No move"
+            imageComponent.sprite = noMoveSprite; //Resets the sprite to default "No move"
         }
     }
 }
