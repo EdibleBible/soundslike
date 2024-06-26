@@ -11,54 +11,49 @@ public class SpoderTrail : MonoBehaviour
     [Tooltip("Scriptable Object which holds the joint & move history")] public SO_MoveHistory history;
     [Tooltip("Sprites of movement icons in UI (in the order of MoveType enum")] public List<Sprite> moveSpriteImages = new();
     [Tooltip("Material for the LineRenderer")] public Material lineMaterial;
-    private List<LineRenderer> lineRenderers = new List<LineRenderer>();
+    private LineRenderer lineRenderer;
 
     private void Start()
     {
-        history.trailJoints.Add(player.levelInfo.heartObject.GetComponent<WebJoint>()); //Brute forces the Center joint into this list so that Moves list can work properly with the first movement
+        history.trailJoints.Add(player.levelInfo.heartObject); //Brute forces the Center joint into this list so that Moves list can work properly with the first movement
+        lineRenderer = GetComponent<LineRenderer>();
+        UpdateLineRenderer();
+    }
+
+    private void UpdateLineRenderer()
+    {
+        // Update the position count of the line renderer
+        lineRenderer.positionCount = history.trailJoints.Count;
+
+        // Update the positions in the line renderer
+        for (int i = 0; i < history.trailJoints.Count; i++)
+        {
+            lineRenderer.SetPosition(i, history.trailJoints[i].transform.position);
+        }
     }
 
     public void StartTrailing(WebJoint initialJoint) //Restarts the list of moves & joint history
     {
         history.trailJoints.Clear();
-        history.trailJoints.Add(initialJoint);
+        history.trailJoints.Add(initialJoint.gameObject);
         history.moves.Clear();
         // UpdateMoveSprites(history.moves, moveSpriteImages); //Calls the event which updates the UI sprites of the movement history
+    }
+
+    void Update()
+    {
+        UpdateLineRenderer();
     }
 
     public MoveType ExtendTrail(WebJoint nextJoint) //Handles adding a new entry into the list of moves & joint history
     {
         int trailLength = history.trailJoints.Count;
-        history.trailJoints.Add(nextJoint);
-        MoveType latestMove = DetectMove(history.trailJoints[trailLength - 1], history.trailJoints[trailLength]); //Calls to detect the type of movement between this and the previous movement
+        history.trailJoints.Add(nextJoint.gameObject);
+        MoveType latestMove = DetectMove(history.trailJoints[trailLength - 1].GetComponent<WebJoint>(), history.trailJoints[trailLength].GetComponent<WebJoint>()); //Calls to detect the type of movement between this and the previous movement
         history.moves.Add(latestMove);
-        DrawLine();
         // UpdateMoveSprites(history.moves, moveSpriteImages); //Calls the event which updates the UI sprites of the movement history
         Debug.Log(history.trailJoints[history.trailJoints.Count - 1]);
         return latestMove; // Currently unused but still implemented incase the latest move has to be called
-    }
-
-    public void DrawLine()
-    {
-        GameObject lineObj = new GameObject("Line");
-        LineRenderer lineRenderer = lineObj.AddComponent<LineRenderer>();
-
-        // Configure the line renderer
-        lineRenderer.material = lineMaterial;
-        lineRenderer.positionCount = 2;
-        lineRenderer.startWidth = 0.1f;
-        lineRenderer.endWidth = 0.1f;
-
-        // Get the second-to-last and last objects
-        GameObject secondToLastObject = history.trailJoints[history.trailJoints.Count - 2].gameObject;
-        GameObject lastObject = history.trailJoints[history.trailJoints.Count - 1].gameObject;
-
-        // Set the positions for the line renderer
-        lineRenderer.SetPosition(0, secondToLastObject.transform.position);
-        lineRenderer.SetPosition(1, lastObject.transform.position);
-
-        // Add the line renderer to the list
-        lineRenderers.Add(lineRenderer);
     }
 
     //DANGER ZONE WORKS MYSTERIOUSLY
@@ -85,8 +80,8 @@ public class SpoderTrail : MonoBehaviour
     public MoveType DetectMove() //Used to detect the movement type, mostly for determining player rotation 
     {
         int trailLength = history.trailJoints.Count;
-        WebJoint jointA = history.trailJoints[trailLength - 1];
-        WebJoint jointB = history.trailJoints[trailLength];
+        WebJoint jointA = history.trailJoints[trailLength - 1].GetComponent<WebJoint>();
+        WebJoint jointB = history.trailJoints[trailLength].GetComponent<WebJoint>();
         if (jointA.tag == jointB.tag)
         {
             if ((jointA.jointCoords > jointB.jointCoords && (int)jointA.jointCoords - (int)jointB.jointCoords != 7) || (int)jointB.jointCoords - (int)jointA.jointCoords == 7)
