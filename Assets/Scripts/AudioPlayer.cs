@@ -5,12 +5,15 @@ using UnityEngine;
 public class AudioPlayer : MonoBehaviour
 {
     private AudioSource audioSource;
+
+    private void OnEnable()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     public void PlayAudio(AudioClip clip)
     {
-        if (clip != null)
-        {
-            audioSource.clip = clip;
-            audioSource.Play();
-        }
+        audioSource.clip = clip;
+        audioSource.Play();
     }
 }

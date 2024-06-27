@@ -1564,11 +1564,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
   enemyPrefabs:
-  - {fileID: 7205577175989442452, guid: c64ab55fa03c0674e998c896640f2f7c, type: 3}
-  - {fileID: 7205577175989442452, guid: a42bdfb4ed390994d9ea5a87d8d8674f, type: 3}
   - {fileID: 7205577175989442452, guid: 9c77bdae4628d25429a97aaf6c7b5aaf, type: 3}
-  - {fileID: 7205577175989442452, guid: df1ee3ca1c55f354faa85187a3b885cd, type: 3}
   - {fileID: 7205577175989442452, guid: 9e9c37eda3a6b0945b61ed46d544e0df, type: 3}
+  - {fileID: 7205577175989442452, guid: a42bdfb4ed390994d9ea5a87d8d8674f, type: 3}
+  - {fileID: 7205577175989442452, guid: c64ab55fa03c0674e998c896640f2f7c, type: 3}
+  - {fileID: 7205577175989442452, guid: df1ee3ca1c55f354faa85187a3b885cd, type: 3}
   interval: 10
   enemy0SpawnersList:
   - {fileID: 5200777122318055255}
@@ -1702,7 +1702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
-  playerHP: 1
+  playerHP: 3
 --- !u!4 &2383468205983499447 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2950027066642742242, guid: 4132b7c2ac5565e41aeb80dbadbfb1da, type: 3}
