@@ -23,4 +23,12 @@ public class SO_Events : ScriptableObject
     {
         AttackEvent.Invoke(attackIndex);
     }
+
+    public delegate void UpdateHP(int hp);
+    public static event UpdateHP UpdateHPEvent;
+
+    public static void CallUpdateHP(int hp)
+    {
+        UpdateHPEvent.Invoke(hp);
+    }
 }

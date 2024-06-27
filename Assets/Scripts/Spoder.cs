@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static SO_Enums;
 using static SO_Events;
 
@@ -13,12 +14,14 @@ public class Spoder : MonoBehaviour
     public SpoderAttack attackScript; //Script which handles sttacking
     public SO_CurrentLevel levelInfo;
 
-    public AudioSource sourceW;
-    public AudioSource sourceA;
-    public AudioSource sourceD;
+    private void Awake()
+    {
+        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
+    }
 
     void Start()
     {
+        levelInfo.levelTime = 0;
         currentJoint = levelInfo.heartObject.GetComponent<WebJoint>();
         currentJoint.AttachPlayer(this); //Attaches the player to the Center joint assigned in Inspector
         trailScript.StartTrailing(currentJoint); //Idk if it actually works lmao
@@ -26,6 +29,7 @@ public class Spoder : MonoBehaviour
 
     void Update()
     {
+        levelInfo.levelTime += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.W)) //Key for jumping forwards
         {
             currentJoint = currentJoint.Jump(); //Attaches the player to a magically determined joint (simply - next joint)
@@ -35,21 +39,18 @@ public class Spoder : MonoBehaviour
                 trailScript.StartTrailing(currentJoint);
             }
 
-            sourceW.Play();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             currentJoint.SwitchRight();
             transform.LookAt(currentJoint.ReturnNextJoint().transform);
 
-            sourceD.Play();
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             currentJoint.SwitchLeft();
             transform.LookAt(currentJoint.ReturnNextJoint().transform);
 
-            sourceA.Play();
         }
         if (Input.GetKeyDown(KeyCode.Space)) //Begins attack & resets the move list & joint history manually
         {
