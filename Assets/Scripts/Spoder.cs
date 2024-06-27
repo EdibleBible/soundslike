@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 using static SO_Enums;
 using static SO_Events;
 
@@ -13,6 +14,7 @@ public class Spoder : MonoBehaviour
     public SpoderTrail trailScript; //Script which handles the trail the player walks
     public SpoderAttack attackScript; //Script which handles sttacking
     public SO_CurrentLevel levelInfo;
+    public SO_MoveHistory history;
     public AudioSource source;
     public AudioClip soundTurn;
     public AudioClip soundUp;
@@ -24,6 +26,11 @@ public class Spoder : MonoBehaviour
     public AudioClip soundAttack2;
     public AudioClip soundAttack3;
     public AudioClip soundAttack4;
+    public VisualEffect vfx0;
+    public VisualEffect vfx1;
+    public VisualEffect vfx2;
+    public VisualEffect vfx3;
+    public VisualEffect vfx4;
 
     private void Awake()
     {
@@ -82,31 +89,44 @@ public class Spoder : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space)) //Begins attack & resets the move list & joint history manually
         {
-            if (attackScript.CanAttack())
+            GetToAttack();
+        }
+        if (history.moves.Count == 5)
+        {
+            GetToAttack();
+        }
+    }
+    public void GetToAttack()
+    {
+        if (attackScript.CanAttack() && levelInfo.enemiesInLevel.Count != 0)
+        {
+            int attackIndex = attackScript.GetAttackIndex();
+            switch (attackIndex)
             {
-                int attackIndex = attackScript.GetAttackIndex();
-                switch (attackIndex)
-                {
-                    case 0:
-                        source.clip = soundAttack0;
-                        break;
-                    case 1:
-                        source.clip = soundAttack1;
-                        break;
-                    case 2:
-                        source.clip = soundAttack2;
-                        break;
-                    case 3:
-                        source.clip = soundAttack3;
-                        break;
-                    case 4:
-                        source.clip = soundAttack4;
-                        break;
-                }
-                source.Play();
-                CallAttackEvent(attackIndex);
-                trailScript.StartTrailing(currentJoint);
+                case 0:
+                    source.clip = soundAttack0;
+                    vfx0.Play();
+                    break;
+                case 1:
+                    source.clip = soundAttack1;
+                    vfx1.Play();
+                    break;
+                case 2:
+                    source.clip = soundAttack2;
+                    vfx2.Play();
+                    break;
+                case 3:
+                    source.clip = soundAttack3;
+                    vfx3.Play();
+                    break;
+                case 4:
+                    source.clip = soundAttack4;
+                    vfx4.Play();
+                    break;
             }
+            source.Play();
+            CallAttackEvent(attackIndex);
+            trailScript.StartTrailing(currentJoint);
         }
     }
 }

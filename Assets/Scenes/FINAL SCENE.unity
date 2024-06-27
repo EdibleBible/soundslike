@@ -2260,6 +2260,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1333488743}
     - target: {fileID: 6788759999535188067, guid: cf231e679697c32458ce9631c96ba880, type: 3}
+      propertyPath: history
+      value: 
+      objectReference: {fileID: 11400000, guid: aa398e2fda0fb7b458a654d2d1372b2b, type: 2}
+    - target: {fileID: 6788759999535188067, guid: cf231e679697c32458ce9631c96ba880, type: 3}
       propertyPath: soundUp
       value: 
       objectReference: {fileID: 8300000, guid: ab343047edcf5b44aa6b18df873c857e, type: 3}
