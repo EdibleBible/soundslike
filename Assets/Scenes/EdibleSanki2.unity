@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: enemy1SpawnersList.Array.data[2]
       value: 
       objectReference: {fileID: 291389284}
+    - target: {fileID: 4415855066180816442, guid: 8326f7b7acd22614390aa694d0583018, type: 3}
+      propertyPath: playerHP
+      value: 4278
+      objectReference: {fileID: 0}
     - target: {fileID: 5082262500212851803, guid: 8326f7b7acd22614390aa694d0583018, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.1
@@ -3738,6 +3742,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2907856599980257006, guid: 8e9054e2f4d194541bcf41d741547829, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a3def457ff02d9a4190beb601d650456, type: 2}
     - target: {fileID: 5846257582396099770, guid: 8e9054e2f4d194541bcf41d741547829, type: 3}
       propertyPath: m_Name
       value: VFX

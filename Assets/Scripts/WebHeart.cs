@@ -7,7 +7,7 @@ using static SO_Events;
 public class WebHeart : MonoBehaviour
 {
     public SO_CurrentLevel levelInfo;
-    public int playerHP = 3;
+    public int playerHP = 300;
 
     private void OnEnable()
     {
