@@ -22,7 +22,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     private IEnumerator LoopSpawning()
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(48f);
 
         int index = 0; // Start at the beginning of the list
         int randomValue;
