@@ -282,7 +282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a14d8158e437b447a90cc10c2f46aa4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6974fec153dd161488e9801445926b0e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -314,10 +314,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2090913471}
   hpSprites:
-  - {fileID: 21300000, guid: d1b1bc4c3752f35488c11d741b0043ef, type: 3}
-  - {fileID: 21300000, guid: 00f5eb7d73a38f846b9f6ea0460ff234, type: 3}
-  - {fileID: 21300000, guid: 44562d17e643f9a499428a7e725c24b6, type: 3}
-  - {fileID: 21300000, guid: 3a14d8158e437b447a90cc10c2f46aa4, type: 3}
+  - {fileID: 21300000, guid: 223dbc6077283e247b2212fe8c9ba3d4, type: 3}
+  - {fileID: 21300000, guid: 2ecda97a86ac8c74fb53bdd45cd369aa, type: 3}
+  - {fileID: 21300000, guid: 99d914f73b6145b46966ff96ac248110, type: 3}
+  - {fileID: 21300000, guid: 6974fec153dd161488e9801445926b0e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

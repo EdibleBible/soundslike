@@ -14,10 +14,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Sanki.unity
     guid: 3d24960530ade69469baa1f432a6de81
+  - enabled: 1
+    path: Assets/Scenes/FINAL SCENE.unity
+    guid: b6ebc631583301b448bccd09b73ceb25
   - enabled: 0
     path: Assets/Scenes/EdibleSanki2.unity
     guid: 18b04cbef5ff0d44d958a1e0b0d62499
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/EdibleSanki3.unity
     guid: 1ce170d3c20e3c34a86f6908f92ac765
   - enabled: 1
