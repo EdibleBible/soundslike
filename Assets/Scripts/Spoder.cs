@@ -91,10 +91,6 @@ public class Spoder : MonoBehaviour
         {
             GetToAttack();
         }
-        if (history.moves.Count == 5)
-        {
-            GetToAttack();
-        }
     }
     public void GetToAttack()
     {
