@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8110396b987faa8448f08e982354e9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 4
+  type: 3
   audioPlayer: {fileID: 7116779588359468413}
   attacks: {fileID: 11400000, guid: dd7b0f897ec5a164484f8bf45cc83692, type: 2}
   levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
