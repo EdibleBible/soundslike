@@ -6,15 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Menu_New.unity
-    guid: 0320b166cc657ab40bbe10a3122fe908
-  - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: 572a436047cea5a4fb993c4bea61cd6c
+    path: Assets/Scenes/Menu.unity
+    guid: 9aa8bd1094b6456459862b9410437851
   - enabled: 0
     path: Assets/Scenes/Sanki.unity
     guid: 3d24960530ade69469baa1f432a6de81
   - enabled: 0
-    path: Assets/Scenes/Menu.unity
-    guid: 9aa8bd1094b6456459862b9410437851
+    path: Assets/Scenes/EdibleSanki2.unity
+    guid: 18b04cbef5ff0d44d958a1e0b0d62499
+  - enabled: 1
+    path: Assets/Scenes/EdibleSanki3.unity
+    guid: 1ce170d3c20e3c34a86f6908f92ac765
+  - enabled: 1
+    path: Assets/Scenes/LevelUI.unity
+    guid: 5d231617f348909489a7281bd5d51859
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: f61a3148e20198e4ba52248f9f8279e8
   m_configObjects: {}

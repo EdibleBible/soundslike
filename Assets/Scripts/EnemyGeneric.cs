@@ -39,19 +39,16 @@ public class EnemyGeneric : MonoBehaviour, IEnemy
 
     private void Start()
     {
-        transform.LookAt(levelInfo.heartObject.transform.position);
+        transform.LookAt(levelInfo.heartObject.GetComponent<WebJoint>().joints[4].transform.position);
     }
 
     public void Damage(int attackIndex)
     {
         if (attackIndex == (int)type)
         {
-            Debug.Log("dupa");
-            if (audioClipList[(int)type] != null)
-            {
-                Debug.Log("dupaExtra");
-                audioPlayer.PlayAudio(audioClipList[(int)type]);
-            }
+            audioPlayer.PlayAudio(audioClipList[(int)type]);
+            levelInfo.enemiesInLevel.Remove(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
