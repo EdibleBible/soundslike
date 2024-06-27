@@ -22,27 +22,19 @@ public class SpoderAttack : MonoBehaviour
 
     public bool CanAttack() //Not tested yet
     {
-        int attackLength;
-        int moveHistoryLength = moveHistory.moves.Count;
-        int attackIndexShift = 0;
+        attackIndex = 0;
         foreach (var attack in attackList)
         {
-            attackLength = attack.Count;
-            if (attack.Count > moveHistoryLength)
+            if (moveHistory.moves.Count > 4 &&
+                attack[0] == moveHistory.moves[0] &&
+                attack[1] == moveHistory.moves[1] &&
+                attack[2] == moveHistory.moves[2] &&
+                attack[3] == moveHistory.moves[3] &&
+                attack[4] == moveHistory.moves[4])
             {
-                attackIndexShift++;
-                continue;
+                return true;
             }
-            for (int i = 0; i < attackLength; i++)
-            {
-                if (attack[attackLength - i - 1] != moveHistory.moves[moveHistoryLength - i - 1])
-                {
-                    attackIndexShift++;
-                    continue;
-                }
-            }
-            attackIndex = attackIndexShift;
-            return true;
+            attackIndex++;
         }
         return false;
     }

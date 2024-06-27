@@ -46,10 +46,7 @@ public class EnemyGeneric : MonoBehaviour, IEnemy
     {
         if (attackIndex == (int)type)
         {
-            if (audioClipList[(int)type] != null)
-            {
-                audioPlayer.PlayAudio(audioClipList[(int)type]);
-            }
+            audioPlayer.PlayAudio(audioClipList[(int)type]);
             levelInfo.enemiesInLevel.Remove(gameObject);
             gameObject.SetActive(false);
         }
