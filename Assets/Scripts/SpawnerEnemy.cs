@@ -13,6 +13,7 @@ public class SpawnerEnemy : MonoBehaviour
     public List<Transform> enemy2SpawnersList = new();
     public List<Transform> enemy3SpawnersList = new();
     public List<Transform> enemy4SpawnersList = new();
+    public float timeBeforeFirst = 48f;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class SpawnerEnemy : MonoBehaviour
 
     private IEnumerator LoopSpawning()
     {
-        yield return new WaitForSeconds(48f);
+        yield return new WaitForSeconds(timeBeforeFirst);
 
         int index = 0; // Start at the beginning of the list
         int randomValue;
