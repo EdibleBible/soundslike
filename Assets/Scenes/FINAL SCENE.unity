@@ -2256,6 +2256,26 @@ PrefabInstance:
       value: PLAYER
       objectReference: {fileID: 0}
     - target: {fileID: 6788759999535188067, guid: cf231e679697c32458ce9631c96ba880, type: 3}
+      propertyPath: vfx0
+      value: 
+      objectReference: {fileID: 1814853911}
+    - target: {fileID: 6788759999535188067, guid: cf231e679697c32458ce9631c96ba880, type: 3}
+      propertyPath: vfx1
+      value: 
+      objectReference: {fileID: 1814853911}
+    - target: {fileID: 6788759999535188067, guid: cf231e679697c32458ce9631c96ba880, type: 3}
+      propertyPath: vfx2
+      value: 
+      objectReference: {fileID: 1814853911}
+    - target: {fileID: 6788759999535188067, guid: cf231e679697c32458ce9631c96ba880, type: 3}
+      propertyPath: vfx3
+      value: 
+      objectReference: {fileID: 1814853911}
+    - target: {fileID: 6788759999535188067, guid: cf231e679697c32458ce9631c96ba880, type: 3}
+      propertyPath: vfx4
+      value: 
+      objectReference: {fileID: 1814853911}
+    - target: {fileID: 6788759999535188067, guid: cf231e679697c32458ce9631c96ba880, type: 3}
       propertyPath: source
       value: 
       objectReference: {fileID: 1333488743}
@@ -2436,6 +2456,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7890194322952882097, guid: 8131f707e40c8ab4b98350dd4451b9d3, type: 3}
   m_PrefabInstance: {fileID: 448501215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!2083052967 &1814853911 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 4405996629176879230, guid: 8e9054e2f4d194541bcf41d741547829, type: 3}
+  m_PrefabInstance: {fileID: 1842931176}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1842931176
 PrefabInstance:
