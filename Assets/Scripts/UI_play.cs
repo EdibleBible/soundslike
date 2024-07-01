@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
 public class UI_play : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadSceneAsync(1); 
+        Debug.Log("PlayGame method called");
+        SceneManager.LoadSceneAsync("FINAL SCENE");
     }
+
     public void QuitGame()
     {
         Application.Quit();
+    }
+    
+    public void OnButtonClicked()
+    {
+        Debug.Log("Button clicked");
     }
 }

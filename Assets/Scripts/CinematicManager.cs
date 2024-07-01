@@ -13,14 +13,14 @@ public class CinematicManager : MonoBehaviour
     {
         if (playableDirector != null)
         {
-            // Dodajemy metodę OnPlayableDirectorStopped do eventu stopped PlayableDirector
+            
             playableDirector.stopped += OnPlayableDirectorStopped;
         }
     }
 
     void OnPlayableDirectorStopped(PlayableDirector director)
     {
-        // Zatrzymujemy odtwarzanie audio, gdy PlayableDirector się zatrzyma
+        
         if (audioSource != null)
         {
             audioSource.Stop();
@@ -29,14 +29,14 @@ public class CinematicManager : MonoBehaviour
 
     void OnDestroy()
     {
-        // Usuwamy metodę z eventu, aby uniknąć błędów, gdy obiekt zostanie zniszczony
+        
         if (playableDirector != null)
         {
             playableDirector.stopped -= OnPlayableDirectorStopped;
         }
     }
 
-    // Opcjonalnie, możemy dodać metodę, aby uruchomić Timeline i audio razem
+    
     public void PlayCinematic()
     {
         if (playableDirector != null)
