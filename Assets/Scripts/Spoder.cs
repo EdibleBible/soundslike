@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
@@ -9,13 +6,14 @@ using static SO_Events;
 
 public class Spoder : MonoBehaviour
 {
-    [NonSerialized] public WebJoint currentJoint; //The joint the player is on
-    [NonSerialized] public int direction; //The direction the player is facing
-    public SpoderTrail trailScript; //Script which handles the trail the player walks
-    public SpoderAttack attackScript; //Script which handles sttacking
-    public SO_CurrentLevel levelInfo;
-    public SO_MoveHistory history;
-    public AudioSource source;
+    [HideInInspector] public WebJoint currentJoint; //The joint the player is on
+    [HideInInspector] public int direction; //The direction the player is facing
+    [Tooltip("SpoderTrail component of this player object")] public SpoderTrail trailScript;
+    [Tooltip("SpoderAttack component of this player object")] public SpoderAttack attackScript;
+    [Tooltip("SO_CurrentLevel")] public SO_CurrentLevel levelInfo;
+    [Tooltip("SO_MoveHistory")] public SO_MoveHistory history;
+    [Tooltip("AudioSource component of this player object")] public AudioSource source;
+    // I hate everything that happened below this spot but it's holding on barely so let's save it for now
     public AudioClip soundTurn;
     public AudioClip soundUp;
     public AudioClip soundDown;

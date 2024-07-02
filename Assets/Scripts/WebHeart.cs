@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static SO_Events;
 
 public class WebHeart : MonoBehaviour
 {
-    public SO_CurrentLevel levelInfo;
+    [Tooltip("SO_CurrentLevel")] public SO_CurrentLevel levelInfo;
     public int playerHP = 300;
 
     private void OnEnable()

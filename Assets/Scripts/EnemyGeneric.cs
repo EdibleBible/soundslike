@@ -1,17 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using static SO_Enums;
 using static SO_Events;
 
+// Handles the basics of enemies
 public class EnemyGeneric : MonoBehaviour, IEnemy
 {
     public EnemyType type;
-    public AudioPlayer audioPlayer;
-    private List<AudioClip> audioClipList = new();
-    public SO_Attacks attacks;
-    public SO_CurrentLevel levelInfo;
     public int damageToPlayer = 1;
+    [Tooltip("Enemy attack sound")] public AudioClip attackPattern;
+    [Tooltip("SO_Attacks")] public SO_Attacks attacks;
+    [Tooltip("SO_CurrentLevel")] public SO_CurrentLevel levelInfo;
+    private AudioSource audioSource;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,12 +23,10 @@ public class EnemyGeneric : MonoBehaviour, IEnemy
 
     private void OnEnable() //Subscribes to the attack event
     {
+        audioSource = GetComponent<AudioSource>();
         AttackEvent += Damage;
-        audioClipList.Add(attacks.attackSound0);
-        audioClipList.Add(attacks.attackSound1);
-        audioClipList.Add(attacks.attackSound2);
-        audioClipList.Add(attacks.attackSound3);
-        audioClipList.Add(attacks.attackSound4);
+        audioSource.clip = attackPattern;
+        audioSource.Play();
     }
 
     private void OnDisable() //Unsubscribes from the attack event
@@ -39,15 +36,14 @@ public class EnemyGeneric : MonoBehaviour, IEnemy
 
     private void Start()
     {
-        transform.LookAt(levelInfo.heartObject.GetComponent<WebJoint>().joints[4].transform.position);
+        transform.LookAt(levelInfo.heartObject.GetComponent<WebJoint>().joints[4].transform.position); // Rotates the enemies towards the center (with a bugfix)
     }
 
     public void Damage(int attackIndex)
     {
-        if (attackIndex == (int)type)
+        if (attackIndex == (int)type) // If the attack index & enemy type (as int) are the same, the attack is performed
         {
-            audioPlayer.PlayAudio(audioClipList[(int)type]);
-            levelInfo.enemiesInLevel.Remove(gameObject);
+            levelInfo.enemiesInLevel.Remove(gameObject); // Unindexes the enemy from the list
             gameObject.SetActive(false);
         }
     }

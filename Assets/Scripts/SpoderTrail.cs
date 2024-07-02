@@ -1,15 +1,12 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static SO_Events;
 using static SO_Enums;
 
 public class SpoderTrail : MonoBehaviour
 {
-    [Tooltip("The Spoder component of this player")] public Spoder player;
-    [Tooltip("Scriptable Object which holds the joint & move history")] public SO_MoveHistory history;
-    [Tooltip("Sprites of movement icons in UI (in the order of MoveType enum")] public List<Sprite> moveSpriteImages = new();
+    [Tooltip("Spoder component of this player")] public Spoder player;
+    [Tooltip("SO_MoveHistory")] public SO_MoveHistory history;
+    [Tooltip("Sprites of movement icons in UI (in the order of MoveType enum)")] public List<Sprite> moveSpriteImages = new();
     [Tooltip("Material for the LineRenderer")] public Material lineMaterial;
     private LineRenderer lineRenderer;
 

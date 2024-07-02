@@ -1,15 +1,13 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static SO_Enums;
 
 public class WebJoint : MonoBehaviour
 {
-    public JointCoords jointCoords; //The coordinates of this joint on the web
-    [NonSerialized] public Spoder player;   //Player component reference; Null if player isnt on this joint
-    [NonSerialized] public WebJoint nextJoint;  //Currently faced joint
-    public List<WebJoint> joints = new();   //List of joints in all available 8 directions
+    [Tooltip("The coordinates of this joint on the web")] public JointCoords jointCoords;
+    [Tooltip("List of joints in all available 8 directions")] public List<WebJoint> joints = new();
+    [HideInInspector] public Spoder player;   //Player component reference; Null if player isnt on this joint
+    [HideInInspector] public WebJoint nextJoint;  //Currently faced joint
 
     public void AttachPlayer(Spoder spoder) //Called at the beginning & when jumping to switch the joint the player is on
     {

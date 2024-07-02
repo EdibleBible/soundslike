@@ -5,8 +5,8 @@ using static SO_Enums;
 
 public class SpoderAttack : MonoBehaviour
 {
-    [Tooltip("ScriptableObject which holds all attack patterns")] public SO_Attacks attacks;
-    [Tooltip("ScriptableObject which holds the history of moves")] public SO_MoveHistory moveHistory;
+    [Tooltip("SO_Attacks")] public SO_Attacks attacks;
+    [Tooltip("SO_MoveHistory")] public SO_MoveHistory moveHistory;
     private List<List<MoveType>> attackList = new();
     private int attackIndex = 0;
 

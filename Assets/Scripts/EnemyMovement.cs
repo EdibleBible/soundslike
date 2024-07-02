@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float movementSpeed = 1f; // Speed at which the object moves forward
+    [Tooltip("Forward movement speed")] public float movementSpeed = 1f;
     private Rigidbody rb;
 
     void Awake()

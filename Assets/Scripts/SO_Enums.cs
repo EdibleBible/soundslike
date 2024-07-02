@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "SO_Enums", menuName = "ScriptableObjects/Enums")]
 
 public class SO_Enums : ScriptableObject
 {

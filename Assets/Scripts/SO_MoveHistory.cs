@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static SO_Enums;
@@ -7,6 +6,6 @@ using static SO_Enums;
 
 public class SO_MoveHistory : ScriptableObject
 {
-    [Tooltip("DON'T EDIT - History of visited joints")] public List<GameObject> trailJoints = new();
-    [Tooltip("DON'T EDIT - History of made moves")] public List<MoveType> moves = new();
+    [HideInInspector] public List<GameObject> trailJoints = new();
+    [HideInInspector] public List<MoveType> moves = new();
 }
