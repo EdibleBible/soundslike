@@ -24,6 +24,6 @@ public class WebHeart : MonoBehaviour
 
     private void Die()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 }

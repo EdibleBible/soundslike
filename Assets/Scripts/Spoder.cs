@@ -30,10 +30,7 @@ public class Spoder : MonoBehaviour
     public VisualEffect vfx3;
     public VisualEffect vfx4;
 
-    private void Awake()
-    {
-        SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
-    }
+  
 
     void Start()
     {
