@@ -46,7 +46,7 @@ public class Spoder : MonoBehaviour
     void Update()
     {
         levelInfo.levelTime += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.W)) //Key for jumping forwards
+        if (Input.GetKeyDown(KeyCode.W) && currentJoint.nextJoint != null) //Key for jumping forwards
         {
             currentJoint = currentJoint.Jump(); //Attaches the player to a magically determined joint (simply - next joint)
             MoveType thisMove = trailScript.ExtendTrail(currentJoint); //Handles adding new entries to the move list & joint history

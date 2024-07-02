@@ -14,7 +14,10 @@ public class WebJoint : MonoBehaviour
         player = spoder; //Saves the reference to the player locally (is null if this joint doesn't have a player right now)
         player.transform.position = transform.position; //Teleports the player to the position of this joint
         nextJoint = ClosestJoint(); //Calls the method to find the next best candidate for the next joint in this direction
-        player.transform.LookAt(nextJoint.transform); //Rotates the player to face the next joint
+        if (nextJoint != null)
+        {
+            player.transform.LookAt(nextJoint.transform); //Rotates the player to face the next joint
+        }
     }
 
     public WebJoint Jump() //Called by the player to switch the joint
@@ -141,18 +144,10 @@ public class WebJoint : MonoBehaviour
 
         if (!isJointLeft && !isJointRight) //If there is no joint immediately to either side, it randomly picks either side and searches for a joint there. Used at edges (layer C)
         {
-            int randomValue = UnityEngine.Random.Range(0, 2);
-            if (randomValue == 0)
-            {
-                return ReturnJointRight();
-            }
-            else
-            {
-                return ReturnJointLeft();
-            }
+            return null;
         }
 
-        if (tag == "JointC") //Fixes a bug where at the edge (layer C) left & right are switched. It switches them again lmao
+        if (CompareTag("JointC")) //Fixes a bug where at the edge (layer C) left & right are switched. It switches them again lmao
         {
             isJointLeft = !isJointLeft;
             isJointRight = !isJointRight;
