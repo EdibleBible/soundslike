@@ -107,9 +107,6 @@
         },
         {
             "m_Id": "6ad793ec6f05402385988a3b2b23ebd8"
-        },
-        {
-            "m_Id": "4d482e23052e47d881b676d2d23a1e54"
         }
     ],
     "m_GroupDatas": [],
@@ -141,20 +138,6 @@
                     "m_Id": "088b03063405443fb36d362701185a15"
                 },
                 "m_SlotId": 0
-            }
-        },
-        {
-            "m_OutputSlot": {
-                "m_Node": {
-                    "m_Id": "4d482e23052e47d881b676d2d23a1e54"
-                },
-                "m_SlotId": 0
-            },
-            "m_InputSlot": {
-                "m_Node": {
-                    "m_Id": "6ad793ec6f05402385988a3b2b23ebd8"
-                },
-                "m_SlotId": 1
             }
         },
         {
@@ -587,11 +570,11 @@
     "m_Guid": {
         "m_GuidSerialized": "980dd2e1-bee1-4c6e-9ad8-1a5a8a95fac6"
     },
-    "m_Name": "DissolveAmount",
+    "m_Name": "_Fade",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "DissolveAmount",
-    "m_DefaultReferenceName": "_DissolveAmount",
-    "m_OverrideReferenceName": "",
+    "m_RefNameGeneratedByDisplayName": "_Fade",
+    "m_DefaultReferenceName": "_Fade",
+    "m_OverrideReferenceName": "_Fade",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
     "m_CustomSlotLabel": "",
@@ -603,7 +586,7 @@
     "m_Value": 0.33000001311302187,
     "m_FloatType": 1,
     "m_RangeValues": {
-        "x": 0.0,
+        "x": 0.20000000298023225,
         "y": 1.0
     }
 }
@@ -1050,42 +1033,6 @@
 
 {
     "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
-    "m_ObjectId": "4d482e23052e47d881b676d2d23a1e54",
-    "m_Group": {
-        "m_Id": ""
-    },
-    "m_Name": "Property",
-    "m_DrawState": {
-        "m_Expanded": true,
-        "m_Position": {
-            "serializedVersion": "2",
-            "x": -231.70826721191407,
-            "y": 1103.832763671875,
-            "width": 0.0,
-            "height": 0.0
-        }
-    },
-    "m_Slots": [
-        {
-            "m_Id": "6dec7154ab154283a1d814c3d6eeac14"
-        }
-    ],
-    "synonyms": [],
-    "m_Precision": 0,
-    "m_PreviewExpanded": true,
-    "m_DismissedVersion": 0,
-    "m_PreviewMode": 0,
-    "m_CustomColors": {
-        "m_SerializableColors": []
-    },
-    "m_Property": {
-        "m_Id": "0e5e83c1229e49c8a785403375e17b94"
-    }
-}
-
-{
-    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicValueMaterialSlot",
     "m_ObjectId": "564c5fb4bd8344af9214efe38737cc57",
     "m_Id": 2,
@@ -1253,10 +1200,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -10.399981498718262,
-            "y": 751.199951171875,
-            "width": 207.99990844726563,
-            "height": 301.60009765625
+            "x": 0.00002574920654296875,
+            "y": 751.0,
+            "width": 207.9999542236328,
+            "height": 302.0
         }
     },
     "m_Slots": [
@@ -1316,31 +1263,6 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "SurfaceDescription.Specular"
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.ShaderGraph.Vector4MaterialSlot",
-    "m_ObjectId": "6dec7154ab154283a1d814c3d6eeac14",
-    "m_Id": 0,
-    "m_DisplayName": "DissolveColor",
-    "m_SlotType": 1,
-    "m_Hidden": false,
-    "m_ShaderOutputName": "Out",
-    "m_StageCapability": 3,
-    "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    },
-    "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
-    },
-    "m_Labels": []
 }
 
 {
@@ -1474,10 +1396,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -308.79998779296877,
-            "y": 676.7999877929688,
-            "width": 207.99996948242188,
-            "height": 301.60009765625
+            "x": -297.9999084472656,
+            "y": 661.9999389648438,
+            "width": 207.9999542236328,
+            "height": 302.00006103515627
         }
     },
     "m_Slots": [
@@ -1858,7 +1780,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "b0d61fea97dd48ffa4648280b2977ee2",
     "m_Id": 0,
-    "m_DisplayName": "DissolveAmount",
+    "m_DisplayName": "_Fade",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",

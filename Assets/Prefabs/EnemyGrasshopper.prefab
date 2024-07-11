@@ -55,6 +55,7 @@ MonoBehaviour:
   attackPattern: {fileID: 8300000, guid: e391fd202fc2a614bb234c1c8fb0ec72, type: 3}
   attacks: {fileID: 11400000, guid: dd7b0f897ec5a164484f8bf45cc83692, type: 2}
   levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
+  scoreValue: 10
 --- !u!114 &138281944991881537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -286,6 +287,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7800548741412846983, guid: cb589e2f58ff27845acc05cc6e39654d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
+    - target: {fileID: -5001416183638713806, guid: cb589e2f58ff27845acc05cc6e39654d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
     - target: {fileID: 919132149155446097, guid: cb589e2f58ff27845acc05cc6e39654d, type: 3}
       propertyPath: m_Name
       value: grasshopper
@@ -342,6 +351,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -62.242
       objectReference: {fileID: 0}
+    - target: {fileID: 7278348964463127448, guid: cb589e2f58ff27845acc05cc6e39654d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

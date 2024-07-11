@@ -56,6 +56,7 @@ MonoBehaviour:
   attackPattern: {fileID: 8300000, guid: 41282bab7ed37c74d889b223ddca2d5c, type: 3}
   attacks: {fileID: 11400000, guid: dd7b0f897ec5a164484f8bf45cc83692, type: 2}
   levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
+  scoreValue: 10
 --- !u!114 &138281944991881537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +309,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8539920066817831198, guid: 3364ad0b13d08994a9db3173c820ec34, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
+    - target: {fileID: -8401058358152725557, guid: 3364ad0b13d08994a9db3173c820ec34, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
     - target: {fileID: -8265679515080850466, guid: 3364ad0b13d08994a9db3173c820ec34, type: 3}
       propertyPath: m_Layer
       value: 6
@@ -324,6 +333,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3771167550186010837, guid: 3364ad0b13d08994a9db3173c820ec34, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
     - target: {fileID: 8829414129297429972, guid: 3364ad0b13d08994a9db3173c820ec34, type: 3}
       propertyPath: m_Layer
       value: 6

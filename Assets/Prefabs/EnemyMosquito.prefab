@@ -56,6 +56,7 @@ MonoBehaviour:
   attackPattern: {fileID: 8300000, guid: 1b55ef55101863e49afc4bd21a3f6a38, type: 3}
   attacks: {fileID: 11400000, guid: dd7b0f897ec5a164484f8bf45cc83692, type: 2}
   levelInfo: {fileID: 11400000, guid: 3236e50cd1cc23a49adbb0acedf6dca3, type: 2}
+  scoreValue: 10
 --- !u!114 &138281944991881537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,14 +309,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6974631651713948150, guid: c15de3d4def25604f9a63e573ab74729, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
     - target: {fileID: -6680061152779453644, guid: c15de3d4def25604f9a63e573ab74729, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -6169110649807078531, guid: c15de3d4def25604f9a63e573ab74729, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
     - target: {fileID: -4416848254089607806, guid: c15de3d4def25604f9a63e573ab74729, type: 3}
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: -4047118484759953300, guid: c15de3d4def25604f9a63e573ab74729, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f8a8077c3879e9d4b959af74821ae041, type: 2}
     - target: {fileID: 211005023956174515, guid: c15de3d4def25604f9a63e573ab74729, type: 3}
       propertyPath: m_Layer
       value: 6
